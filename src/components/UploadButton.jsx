@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import Config from '../config/config';
+import { Grid } from '@material-ui/core';
 
 function UploadButton(props) {
   const [ selectedFile, setSelectedFile ] = useState();
 
-  async function changeHandler(event) {
+  async function selectImage(event) {
     try {
       setSelectedFile(event.target.files);
       let fileName = event.target.files[0].name
@@ -27,6 +28,9 @@ function UploadButton(props) {
   }
 
   async function submitImage() {
+    //Reset the waitingForPrediction state
+    props.setWaitingForPrediction(false)
+    props.setSentToS3(false);
     // Upload into S3 bucket
     axios.put(
       props.preSignedUrl.putUrl, selectedFile[0],
@@ -38,12 +42,14 @@ function UploadButton(props) {
           }
       }
     ).then(response => {
+      console.log("image sent to S3")
       props.setLoading(true);
+      props.setSentToS3(true);
     })
-
 
     // Connect to websocket
     let webSocket = new WebSocket(Config.webSocket);
+
     // Send file name
     let message = {
       action: "registerFileName",
@@ -71,12 +77,18 @@ function UploadButton(props) {
   }, [selectedFile]);
 
   return (
-    <div>
-      <input type="file" name="file upload" onChange={changeHandler} />
-      <button className="btn btn-dark" onClick={submitImage}>
+    <Grid
+      container 
+      direction="row"
+      justify="space-evenly"
+      alignItems="center"
+    >
+      <input className="media" type="file" name="Upload an image for classification" onChange={selectImage} />
+      <button className="media btn btn-dark" onClick={submitImage}>
         Let's infer!
-    </button>
-    </div>
+      </button>
+
+    </Grid>
     
   )
 }

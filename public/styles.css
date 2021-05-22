@@ -26,15 +26,17 @@ body {
 /* header */
 @media screen and (max-width: 800px) {
   .header-font {
-    width: 60%;
+    width: 80%;
     font-size: 30px;
+    text-align: center;
   }
 }
 
 @media screen and (min-width: 801px) {
   .header-font {
-    width: 60%;
+    width: 80%;
     font-size: 80px;
+    text-align: center;
   }
 }
 
@@ -61,25 +63,28 @@ body {
   box-shadow: 0 16px 70px -12.125px rgba(0, 0, 0, 0.3);
 }
 .media {
-  padding-top: 40%;
+  margin: 100px;
   /* position: fixed; */
 }
 .card-content {
   background: #f0e4d7;
 }
 
-/* Skills */
-
-/* Contact me */
+/* Header */
 
 /* Footer */
 .footer {
   color: #b67171;
-  margin: 50px 0px;
+  /* position: absolute;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%; */
+  text-align: center;
 }
 
-img {
-  width: 400px;
+.footer img {
+  width: 80px;
   margin: 30px;
 }
 
