@@ -53,21 +53,9 @@ body {
   height: auto;
 }
 
-.card {
-  margin: 40px 60px;
-  max-width: 800px;
-  transition: 0.3s;
-  box-shadow: 0 8px 40px -12px rgba(0, 0, 0, 0.1);
-}
-.card:hover {
-  box-shadow: 0 16px 70px -12.125px rgba(0, 0, 0, 0.3);
-}
-.media {
-  margin: 100px;
-  /* position: fixed; */
-}
-.card-content {
-  background: #f0e4d7;
+.results {
+  margin: 50px auto;
+  padding: 0 20%;
 }
 
 /* Header */
@@ -75,11 +63,8 @@ body {
 /* Footer */
 .footer {
   color: #b67171;
-  /* position: absolute;
-  margin: auto;
-  bottom: 0;
-  left: 0;
-  width: 100%; */
+  margin: 100px auto;
+  width: 100%;
   text-align: center;
 }
 

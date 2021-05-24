@@ -12,7 +12,7 @@ function Header () {
     >
     <Typography
       className={"MuiTypography--heading header-font"}
-      variant={mobileDevice ? "h5" : "h2"}
+      variant={mobileDevice ? "h4" : "h2"}
       align={"center"}
       gutterBottom={true}
     >
