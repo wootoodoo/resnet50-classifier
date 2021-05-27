@@ -42,7 +42,6 @@ function UploadButton(props) {
           }
       }
     ).then(response => {
-      console.log("image sent to S3")
       props.setLoading(true);
       props.setSentToS3(true);
     })
@@ -56,14 +55,12 @@ function UploadButton(props) {
       message: selectedFile[0].name
     }
     webSocket.onopen = function(e) {
-      console.log("[open] Connection established");
       webSocket.send(JSON.stringify(message));
     };
     
     // receive message from server when done
     webSocket.onmessage = function (event) {
       let res = JSON.parse(event.data);
-      console.log(res);
       props.setPrediction(res);
       props.setWaitingForPrediction(true);
       props.setLoading(false);
@@ -71,10 +68,7 @@ function UploadButton(props) {
     }
   }
 
-  useEffect(() => {
-    console.log("received preSignedUrl from S3");
-    console.log(selectedFile);
-  }, [selectedFile]);
+  useEffect(() => {}, [selectedFile]);
 
   return (
     <Grid

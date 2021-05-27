@@ -5,8 +5,6 @@ import Github from "../images/github.png"
 import { Grid, useMediaQuery, Button } from '@material-ui/core';
 
 function Footer() {
-  const year = new Date().getFullYear();
-  const mobileDevice = useMediaQuery('(max-width:767px)');
   return (
     <footer className="footer">
       <Grid 
