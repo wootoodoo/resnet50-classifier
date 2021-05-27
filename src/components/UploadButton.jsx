@@ -82,11 +82,12 @@ function UploadButton(props) {
       direction="row"
       justify="space-evenly"
       alignItems="center"
-    >
-      <input className="media" type="file" name="Upload an image for classification" onChange={selectImage} />
-      <button className="media btn btn-dark" onClick={submitImage}>
+    > 
+    <label htmlFor="file-upload">Upload an image for classification: </label>
+      <input className="media" type="file" id="file-upload" onChange={selectImage} />
+      {typeof(props.preSignedUrl) != "undefined" && <button className="media btn btn-dark" onClick={submitImage}>
         Let's infer!
-      </button>
+      </button>}
 
     </Grid>
     
